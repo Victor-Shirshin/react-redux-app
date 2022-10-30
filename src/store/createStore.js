@@ -6,6 +6,7 @@ export function createStore(reducer, initialState) {
   function getState() {
     return state;
   }
+
   // dispatch() обновляет состояние
   function dispatch(action) {
     state = reducer(state, action);
@@ -14,10 +15,11 @@ export function createStore(reducer, initialState) {
       listener();
     }
   }
-  // добавляет слушателей которых мы подпишем которым необходимо добавлять обновления
+
+  // добавляет слушателей которым необходимо добавлять обновления
   function subscribe(listener) {
     listeners.push(listener);
   }
-  // импорт из функции
+
   return { getState, dispatch, subscribe }
 }
